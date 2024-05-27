@@ -10,6 +10,7 @@
 .svn/
 migrate_working_dir/
 android/radio-wave-424617-52bc4aa28a8e.json
+.vscode/
 
 # IntelliJ related
 *.iml
