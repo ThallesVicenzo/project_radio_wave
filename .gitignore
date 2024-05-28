@@ -32,6 +32,7 @@ android/radio-wave-424617-52bc4aa28a8e.json
 .dart_tool/package_config_subset
 .dart_tool/package_config.json
 .dart_tool/version
+.dart_tool/pub/
 .flutter-plugins
 .flutter-plugins-dependencies
 .pub-cache/
