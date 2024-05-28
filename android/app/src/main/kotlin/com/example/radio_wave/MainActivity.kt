@@ -1,4 +1,4 @@
-package com.example.radio_wave
+package com.thallesvicenzo.radio_wave
 
 import io.flutter.embedding.android.FlutterActivity
 
