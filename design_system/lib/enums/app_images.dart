@@ -4,7 +4,8 @@ enum AppImage {
   errorImage('error-image.jpg'),
   logo('logo.gif'),
   backgroundImage('background.gif'),
-  backgroundImage2('background-2.png');
+  backgroundImage2('background-2.png'),
+  appIcon('radio_synthwave.jpg');
 
   const AppImage(this.name);
 
