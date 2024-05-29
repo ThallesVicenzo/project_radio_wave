@@ -51,6 +51,7 @@ dependencies:
   equatable:
   firebase_core:
   firebase_auth:
+  dartz:
 
 dev_dependencies:
   flutter_test:
