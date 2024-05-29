@@ -12,7 +12,7 @@ class RadioWave extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'RadioWave',
+      title: 'Radiowave',
       debugShowCheckedModeBanner: false,
       routerConfig: router,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
