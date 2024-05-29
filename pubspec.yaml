@@ -49,8 +49,8 @@ dependencies:
   path_provider:
   intl:
   equatable:
-  firebase_core: ^2.32.0
-  firebase_auth: ^4.20.0
+  firebase_core:
+  firebase_auth:
 
 dev_dependencies:
   flutter_test:
