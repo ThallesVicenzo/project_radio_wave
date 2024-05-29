@@ -15,14 +15,14 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]);
 
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   await inj.init();
 
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
-  );
-
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
   );
 
   runApp(const RadioWave());
