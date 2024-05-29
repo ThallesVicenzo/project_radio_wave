@@ -116,6 +116,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Password...'**
   String get passwordField;
+
+  /// No description provided for @networkError.
+  ///
+  /// In en, this message translates to:
+  /// **'No internet connection'**
+  String get networkError;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

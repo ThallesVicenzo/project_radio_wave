@@ -2,5 +2,6 @@
   "welcomeButtonTitle": "Começar",
   "onboardingPageTitle": "Crie sua conta!",
   "onboardingButtonTitle": "Criar",
-  "passwordField": "Senha..."
+  "passwordField": "Senha...",
+  "networkError": "Sem conexão com a internet."
 }

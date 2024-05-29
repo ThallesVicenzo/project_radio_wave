@@ -15,4 +15,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get passwordField => 'Senha...';
+
+  @override
+  String get networkError => 'Sem conexão com a internet.';
 }

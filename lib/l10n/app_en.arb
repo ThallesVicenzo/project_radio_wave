@@ -2,5 +2,6 @@
   "welcomeButtonTitle": "Get Started",
   "onboardingPageTitle": "Register your account!",
   "onboardingButtonTitle": "Create",
-  "passwordField": "Password..."
+  "passwordField": "Password...",
+  "networkError": "No internet connection"
 }
