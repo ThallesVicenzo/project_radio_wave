@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "569919120436",
+    "project_id": "radiowave-ca80f",
+    "storage_bucket": "radiowave-ca80f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569919120436:android:3a02b2fba895ba98439661",
+        "android_client_info": {
+          "package_name": "com.thallesvicenzo.radio_wave"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUQvtydG1HTM_TM9B2yBYXO8X2P8xVTGg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
