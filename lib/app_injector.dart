@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:radio_wave/l10n/global_app_localizations.dart';
 
@@ -12,4 +13,6 @@ Future<void> init() async {
   );
 
   sl.registerSingleton<ClientHttp>(DioClient());
+
+  sl.registerSingleton<FirebaseAuth>(FirebaseAuth.instance);
 }
