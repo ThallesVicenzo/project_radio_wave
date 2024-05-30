@@ -1,26 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:radio_wave/core/utils/base_cubit.dart';
+import 'package:radio_wave/features/welcome/domain/usecase/onboarding_usecase.dart';
 
 import 'onboarding_state.dart';
 
-class OnboardingCubit extends BaseCubit<OnboardingState> with HydratedMixin {
+class OnboardingCubit extends BaseCubit<OnboardingState> {
+  OnboardingCubit(this._usecase) : super(const OnboardingInitialState());
+
+  final OnboardingUsecase _usecase;
+
   final formKeys = <GlobalKey<FormState>>[
     GlobalKey<FormState>(),
     GlobalKey<FormState>(),
   ];
 
-  OnboardingCubit(super.initialState);
+  final controllers = <TextEditingController>[
+    TextEditingController(),
+    TextEditingController()
+  ];
 
-  @override
-  OnboardingState? fromJson(Map<String, dynamic> json) {
-    // TODO: implement fromJson
-    throw UnimplementedError();
-  }
+  Future<void> createAccount() async {
+    emit(const OnboardingLoadingState());
 
-  @override
-  Map<String, dynamic>? toJson(OnboardingState state) {
-    // TODO: implement toJson
-    throw UnimplementedError();
+    final result = await _usecase.createAccount(
+      email: controllers.first.text,
+      password: controllers[1].text,
+    );
+
+    result.fold(
+      (l) {
+        emit(OnboardingErrorState(l));
+      },
+      (r) {
+        emit(OnboardingSuccessState(r));
+      },
+    );
   }
 }
