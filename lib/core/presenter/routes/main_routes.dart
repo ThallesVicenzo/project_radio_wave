@@ -1,5 +1,6 @@
 enum MainRoutes {
-  welcome('/welcome');
+  welcome('/welcome'),
+  home('/home');
 
   const MainRoutes(this.route);
 

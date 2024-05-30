@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:radio_wave/core/presenter/routes/main_routes.dart';
+import 'package:radio_wave/features/home/presenter/pages/home_page.dart';
 
 import '../../../features/welcome/presenter/pages/onboarding_page.dart';
 import '../../../features/welcome/presenter/pages/welcome_page.dart';
@@ -33,6 +34,14 @@ final router = GoRouter(
           ),
         ),
       ],
+    ),
+    GoRoute(
+      path: MainRoutes.home.route,
+      name: MainRoutes.home.route,
+      pageBuilder: (context, state) => MaterialPage(
+        child: const HomePage(),
+        name: state.name,
+      ),
     ),
   ],
 );
