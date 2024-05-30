@@ -9,6 +9,9 @@ import 'package:design_system/widgets/text%20fields/app_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:radio_wave/app_injector.dart';
+import 'package:radio_wave/core/presenter/routes/app_navigator.dart';
+import 'package:radio_wave/core/presenter/routes/main_routes.dart';
+import 'package:radio_wave/features/welcome/presenter/cubit/onboarding_state.dart';
 import 'package:radio_wave/l10n/global_app_localizations.dart';
 
 import '../cubit/onboarding_cubit.dart';
@@ -69,29 +72,61 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Column(
-                                children: [
-                                  const Form(
-                                    child: AppTextFormField(
-                                      hintText: 'Email...',
-                                      keyboardType: TextInputType.emailAddress,
+                              Builder(builder: (context) {
+                                return Column(
+                                  children: [
+                                    Form(
+                                      key: context
+                                          .read<OnboardingCubit>()
+                                          .formKeys[0],
+                                      child: AppTextFormField(
+                                        hintText: 'Email...',
+                                        controller: context
+                                            .read<OnboardingCubit>()
+                                            .controllers[0],
+                                        keyboardType:
+                                            TextInputType.emailAddress,
+                                      ),
                                     ),
-                                  ),
-                                  const SizedBox(
-                                    height: 16,
-                                  ),
-                                  Form(
-                                    child: AppTextFormField(
-                                      hintText: intl.passwordField,
+                                    const SizedBox(
+                                      height: 16,
                                     ),
-                                  ),
-                                ],
-                              ),
-                              DefaultButton(
-                                title: intl.onboardingButtonTitle,
-                                size: const Size(double.infinity, 48),
-                                onPressed: () {},
-                              )
+                                    Form(
+                                      key: context
+                                          .read<OnboardingCubit>()
+                                          .formKeys[1],
+                                      child: AppTextFormField(
+                                        hintText: intl.passwordField,
+                                        controller: context
+                                            .read<OnboardingCubit>()
+                                            .controllers[1],
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              }),
+                              BlocConsumer<OnboardingCubit, OnboardingState>(
+                                  listener: (context, state) {
+                                if (state is OnboardingSuccessState) {
+                                  AppNavigator(context)
+                                      .goNamed(MainRoutes.home.route);
+                                }
+                              }, builder: (context, state) {
+                                if (state is OnboardingLoadingState) {
+                                  return const CircularProgressIndicator(
+                                    color: Colors.pink,
+                                  );
+                                }
+                                return DefaultButton(
+                                  title: intl.onboardingButtonTitle,
+                                  size: const Size(double.infinity, 48),
+                                  onPressed: () {
+                                    context
+                                        .read<OnboardingCubit>()
+                                        .createAccount();
+                                  },
+                                );
+                              })
                             ],
                           ),
                         ),
