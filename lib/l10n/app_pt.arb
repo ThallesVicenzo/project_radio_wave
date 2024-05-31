@@ -3,5 +3,8 @@
   "onboardingPageTitle": "Crie sua conta!",
   "onboardingButtonTitle": "Criar",
   "passwordField": "Senha...",
-  "networkError": "Sem conexão com a internet."
+  "networkError": "Sem conexão com a internet.",
+  "emptyField": "Esse campo não pode ser vazio!",
+  "invalidEmail": "Por favor, digite um email válido.",
+  "passwordValidation": "Senha não pode ter menos que seis caractéres."
 }

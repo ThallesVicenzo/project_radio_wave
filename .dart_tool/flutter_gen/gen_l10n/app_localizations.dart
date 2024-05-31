@@ -122,6 +122,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No internet connection'**
   String get networkError;
+
+  /// No description provided for @emptyField.
+  ///
+  /// In en, this message translates to:
+  /// **'This field cant be empty!'**
+  String get emptyField;
+
+  /// No description provided for @invalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please type a valid email.'**
+  String get invalidEmail;
+
+  /// No description provided for @passwordValidation.
+  ///
+  /// In en, this message translates to:
+  /// **'Password can not have less than six characters.'**
+  String get passwordValidation;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

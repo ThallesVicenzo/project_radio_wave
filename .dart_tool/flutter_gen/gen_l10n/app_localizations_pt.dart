@@ -18,4 +18,13 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get networkError => 'Sem conexão com a internet.';
+
+  @override
+  String get emptyField => 'Esse campo não pode ser vazio!';
+
+  @override
+  String get invalidEmail => 'Por favor, digite um email válido.';
+
+  @override
+  String get passwordValidation => 'Senha não pode ter menos que seis caractéres.';
 }

@@ -18,4 +18,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get networkError => 'No internet connection';
+
+  @override
+  String get emptyField => 'This field cant be empty!';
+
+  @override
+  String get invalidEmail => 'Please type a valid email.';
+
+  @override
+  String get passwordValidation => 'Password can not have less than six characters.';
 }

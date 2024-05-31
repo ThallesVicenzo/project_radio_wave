@@ -3,5 +3,8 @@
   "onboardingPageTitle": "Register your account!",
   "onboardingButtonTitle": "Create",
   "passwordField": "Password...",
-  "networkError": "No internet connection"
+  "networkError": "No internet connection",
+  "emptyField": "This field cant be empty!",
+  "invalidEmail": "Please type a valid email.",
+  "passwordValidation": "Password can not have less than six characters."
 }
