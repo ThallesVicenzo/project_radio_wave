@@ -26,6 +26,12 @@ class OnBoardingPage extends StatefulWidget {
 class _OnBoardingPageState extends State<OnBoardingPage> {
   final intl = sl<GlobalAppLocalizations>().current;
 
+  bool obscurePassword = true;
+
+  void changePasswordVisibility() {
+    obscurePassword = !obscurePassword;
+  }
+
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.sizeOf(context);
@@ -72,39 +78,64 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Builder(builder: (context) {
-                                return Column(
-                                  children: [
-                                    Form(
-                                      key: context
-                                          .read<OnboardingCubit>()
-                                          .formKeys[0],
-                                      child: AppTextFormField(
-                                        hintText: 'Email...',
-                                        controller: context
+                              BlocBuilder<OnboardingCubit, OnboardingState>(
+                                builder: (context, _) {
+                                  return Column(
+                                    children: [
+                                      Form(
+                                        key: context
                                             .read<OnboardingCubit>()
-                                            .controllers[0],
-                                        keyboardType:
-                                            TextInputType.emailAddress,
+                                            .formKeys[0],
+                                        child: AppTextFormField(
+                                          hintText: 'Email...',
+                                          controller: context
+                                              .read<OnboardingCubit>()
+                                              .controllers[0],
+                                          keyboardType:
+                                              TextInputType.emailAddress,
+                                          validator: (value) => context
+                                              .read<OnboardingCubit>()
+                                              .validateEmail(value),
+                                        ),
                                       ),
-                                    ),
-                                    const SizedBox(
-                                      height: 16,
-                                    ),
-                                    Form(
-                                      key: context
-                                          .read<OnboardingCubit>()
-                                          .formKeys[1],
-                                      child: AppTextFormField(
-                                        hintText: intl.passwordField,
-                                        controller: context
+                                      const SizedBox(
+                                        height: 16,
+                                      ),
+                                      Form(
+                                        key: context
                                             .read<OnboardingCubit>()
-                                            .controllers[1],
+                                            .formKeys[1],
+                                        child: AppTextFormField(
+                                          hintText: intl.passwordField,
+                                          obscureText: obscurePassword,
+                                          sufix: Padding(
+                                            padding:
+                                                const EdgeInsets.only(top: 5),
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                setState(() {
+                                                  changePasswordVisibility();
+                                                });
+                                              },
+                                              child: Icon(
+                                                obscurePassword
+                                                    ? Icons.visibility_off
+                                                    : Icons.remove_red_eye,
+                                              ),
+                                            ),
+                                          ),
+                                          controller: context
+                                              .read<OnboardingCubit>()
+                                              .controllers[1],
+                                          validator: (value) => context
+                                              .read<OnboardingCubit>()
+                                              .validatePassword(value),
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                );
-                              }),
+                                    ],
+                                  );
+                                },
+                              ),
                               BlocConsumer<OnboardingCubit, OnboardingState>(
                                   listener: (context, state) {
                                 if (state is OnboardingSuccessState) {
