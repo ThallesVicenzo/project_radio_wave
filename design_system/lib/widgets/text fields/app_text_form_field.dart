@@ -19,6 +19,7 @@ class AppTextFormField extends StatelessWidget {
     this.keyboardType = TextInputType.text,
     this.initialValue,
     this.sufix,
+    this.obscureText,
   });
 
   final String? label;
@@ -28,6 +29,7 @@ class AppTextFormField extends StatelessWidget {
   final double? height;
   final int? maxLines;
   final bool canFocus;
+  final bool? obscureText;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
@@ -53,44 +55,50 @@ class AppTextFormField extends StatelessWidget {
         const SizedBox(
           height: 8,
         ),
-        Container(
-          decoration: BoxDecoration(
-            boxShadow: boxShadowStyle,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: TextFormField(
-            controller: controller,
-            initialValue: initialValue,
-            onTap: onTap,
-            canRequestFocus: canFocus,
-            keyboardType: keyboardType,
-            inputFormatters: inputFormatters,
-            maxLines: maxLines,
-            expands: maxLines == null ? true : false,
-            validator: validator,
-            onChanged: onChanged,
-            cursorColor: Colors.black,
-            decoration: InputDecoration(
-              suffix: sufix,
-              errorText: errorText,
-              errorStyle: const TextStyle(fontSize: 0),
-              isCollapsed: maxLines == null ? true : false,
-              contentPadding: const EdgeInsets.all(8),
-              errorBorder: errorBorder,
-              border: outlineBorder,
-              constraints: BoxConstraints(
-                minHeight: height ?? 48,
-                maxHeight: 96,
+        Stack(
+          children: [
+            Container(
+              height: height ?? 48,
+              decoration: BoxDecoration(
+                boxShadow: boxShadowStyle,
+                borderRadius: BorderRadius.circular(10),
               ),
-              hintText: hintText,
-              hintStyle: TextStyle(
-                color: Colors.black.withAlpha(100),
-              ),
-              disabledBorder: outlineBorder,
-              enabledBorder: outlineBorder,
-              focusedBorder: outlineBorder,
             ),
-          ),
+            TextFormField(
+              controller: controller,
+              initialValue: initialValue,
+              onTap: onTap,
+              canRequestFocus: canFocus,
+              keyboardType: keyboardType,
+              inputFormatters: inputFormatters,
+              maxLines: maxLines,
+              expands: maxLines == null ? true : false,
+              validator: validator,
+              onChanged: onChanged,
+              cursorColor: Colors.black,
+              obscureText: obscureText ?? false,
+              decoration: InputDecoration(
+                suffixIcon: sufix,
+                suffixIconColor: Colors.black,
+                errorText: errorText,
+                isCollapsed: maxLines == null ? true : false,
+                contentPadding: const EdgeInsets.all(8),
+                errorBorder: errorBorder,
+                border: outlineBorder,
+                constraints: BoxConstraints(
+                  minHeight: height ?? 48,
+                  maxHeight: 96,
+                ),
+                hintText: hintText,
+                hintStyle: TextStyle(
+                  color: Colors.black.withAlpha(100),
+                ),
+                disabledBorder: outlineBorder,
+                enabledBorder: outlineBorder,
+                focusedBorder: outlineBorder,
+              ),
+            ),
+          ],
         ),
       ],
     );
