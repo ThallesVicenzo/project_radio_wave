@@ -38,6 +38,8 @@ android/radio-wave-424617-52bc4aa28a8e.json
 .pub-cache/
 .pub/
 /build/
+
+# Firebase
 /android/app/google-services.json
 /firebase.json
 
