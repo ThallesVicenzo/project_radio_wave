@@ -1,6 +1,10 @@
+import 'dart:convert';
+
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:radio_wave/app_injector.dart';
+import 'package:radio_wave/core/secure_storage/keys/secure_storage_keys.dart';
+import 'package:radio_wave/core/secure_storage/secure_storage.dart';
 import 'package:radio_wave/core/utils/base_cubit.dart';
 import 'package:radio_wave/features/welcome/domain/usecase/onboarding_usecase.dart';
 import 'package:radio_wave/l10n/global_app_localizations.dart';
@@ -8,9 +12,12 @@ import 'package:radio_wave/l10n/global_app_localizations.dart';
 import 'onboarding_state.dart';
 
 class OnboardingCubit extends BaseCubit<OnboardingState> {
-  OnboardingCubit(this._usecase) : super(const OnboardingInitialState());
+  OnboardingCubit(this._usecase, this.secureStorage)
+      : super(const OnboardingInitialState());
 
   final OnboardingUsecase _usecase;
+
+  final SecureStorage secureStorage;
 
   final intl = sl<GlobalAppLocalizations>().current;
 
@@ -58,7 +65,11 @@ class OnboardingCubit extends BaseCubit<OnboardingState> {
         (l) {
           emit(OnboardingErrorState(l));
         },
-        (r) {
+        (r) async {
+          await secureStorage.write(
+            key: SecureStorageKeys.redirectOnboarding.key,
+            value: jsonEncode(true),
+          );
           emit(OnboardingSuccessState(r));
         },
       );
