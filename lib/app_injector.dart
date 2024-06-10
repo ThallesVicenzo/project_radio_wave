@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
+import 'package:radio_wave/core/secure_storage/secure_storage.dart';
+import 'package:radio_wave/core/secure_storage/secure_storage_impl.dart';
 import 'package:radio_wave/features/welcome/domain/repository/onboarding_repository.dart';
 import 'package:radio_wave/features/welcome/domain/usecase/onboarding_usecase.dart';
 import 'package:radio_wave/features/welcome/external/onboarding_data_source_impl.dart';
@@ -16,6 +18,8 @@ Future<void> init() async {
   sl.registerSingleton<GlobalAppLocalizations>(
     GlobalAppLocalizationsImpl(),
   );
+
+  sl.registerSingleton<SecureStorage>(SecureStorageImpl());
 
   sl.registerSingleton<ClientHttp>(DioClient());
 
