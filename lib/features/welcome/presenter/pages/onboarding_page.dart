@@ -37,7 +37,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     final deviceSize = MediaQuery.sizeOf(context);
 
     return BlocProvider(
-      create: (_) => OnboardingCubit(sl()),
+      create: (_) => OnboardingCubit(sl(), sl()),
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         extendBodyBehindAppBar: true,
