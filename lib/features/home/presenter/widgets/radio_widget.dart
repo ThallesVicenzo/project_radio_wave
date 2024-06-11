@@ -25,10 +25,10 @@ class RadioWidget extends StatelessWidget {
             size: const Size(125, 125),
           ),
           const SizedBox(height: 4),
-          const SizedBox(
+          SizedBox(
             width: 130,
             child: AppText(
-              'Andrey gay kk mds',
+              radioName,
               fontSize: FontSize.small,
             ),
           )
