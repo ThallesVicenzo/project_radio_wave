@@ -5,7 +5,8 @@ enum AppImage {
   logo('logo.gif'),
   backgroundImage('background.gif'),
   backgroundImage2('background-2.png'),
-  appIcon('radio_synthwave.jpg');
+  appIcon('radio_synthwave.jpg'),
+  homeBackground('home-background.png');
 
   const AppImage(this.name);
 
