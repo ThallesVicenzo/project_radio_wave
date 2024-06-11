@@ -3,7 +3,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:radio_wave/core/presenter/routes/app_navigator.dart';
+import 'package:radio_wave/core/presenter/routes/app_navigator/app_navigator.dart';
 import 'package:radio_wave/core/presenter/routes/main_routes.dart';
 import 'package:radio_wave/core/secure_storage/keys/secure_storage_keys.dart';
 import 'package:radio_wave/core/secure_storage/secure_storage.dart';

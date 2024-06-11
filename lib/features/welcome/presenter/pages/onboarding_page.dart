@@ -9,7 +9,7 @@ import 'package:design_system/widgets/text%20fields/app_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:radio_wave/app_injector.dart';
-import 'package:radio_wave/core/presenter/routes/app_navigator.dart';
+import 'package:radio_wave/core/presenter/routes/app_navigator/app_navigator.dart';
 import 'package:radio_wave/core/presenter/routes/main_routes.dart';
 import 'package:radio_wave/features/welcome/presenter/cubit/onboarding_state.dart';
 import 'package:radio_wave/l10n/global_app_localizations.dart';

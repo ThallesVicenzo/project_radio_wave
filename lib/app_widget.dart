@@ -3,7 +3,7 @@ import 'package:design_system/widgets/colors/ui_overlay_color.dart';
 import 'package:flutter/material.dart';
 import 'package:radio_wave/app_injector.dart';
 
-import 'core/presenter/routes/app_main_routes_manager.dart';
+import 'core/presenter/routes/manager/app_main_routes_manager.dart';
 import 'l10n/global_app_localizations.dart';
 
 class RadioWave extends StatelessWidget {
