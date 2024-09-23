@@ -67,7 +67,7 @@ class _LogoState extends State<Logo> {
             ),
           ),
           AnimatedPositioned(
-            duration: const Duration(milliseconds: 1500),
+            duration: const Duration(milliseconds: 500),
             top: deviceSize.height * 0.08,
             right: waveOpacity == 0 ? 1 : deviceSize.width * 0.2,
             onEnd: () {
