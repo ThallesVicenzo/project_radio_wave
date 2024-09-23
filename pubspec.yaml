@@ -54,6 +54,8 @@ dependencies:
   dartz:
   email_validator: "^2.1.16"
   flutter_secure_storage:
+  geolocator: ^13.0.1
+  geocoding: ^3.0.0
 
 dev_dependencies:
   flutter_test:
